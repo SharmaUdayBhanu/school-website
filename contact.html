@@ -4,40 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DMSKARTARPUR</title>
+    <link rel="icon" href="images/logo.png" type="img">
     <link rel="stylesheet" href="school.css">
     <script src="jquery-3.7.1.min.js"></script>
-
 </head>
 <body>
+    
     <nav>
-        <img src="logo.png" alt="">
+        <img src="images/logo.png" alt="">
+        <div class="school-name">
+            <p>Dayanand Model School</p>
+            <p>Arya Nagar, Kartarpur</p>
+        </div>
         <div class="navigation">
             <ul>
-                <img id="menu-close" src="close.png" alt="">
-                <li><a href="school.html">Home</a></li>
+                <img id="menu-close" src="images/close.png" alt="">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="curr.html">curriculam</a></li>
-                <li><a class="active" href="contact.html">contact us</a></li>
+                <li><a href="curr.html">Curriculum</a></li>
+                <li><a class="active" href="contact.html">Contact Us</a></li>
             </ul>
-            <img id="menu-btn" src="menu.jpeg" alt="">
+            <img id="menu-btn" src="images/menu.png" alt="">
         </div>
     </nav>
 
-
     <section id="registration">
         <div class="reminder">
-            <h2>Contact Us for further Details!</h2>
+            <h2>Contact Us for Further Details!</h2>
             <p>
-                &bull;dmskartarpur@gmail.com <br>
-                &bull;9876676168 <br>
-                &bull;facebook <br>
+                &bull; dmskartarpur@gmail.com <br>
+                &bull; 9876676168 <br>
+                &bull; Facebook <br>
             </p>
         </div>
         <div class="form">
-            <form id="registrationForm">
-                <h3>
-                    Enter Your Details Here
-                </h3>
+            <form id="registrationForm" action="send_email.php" method="post">
+                <h3>Enter Your Details Here</h3>
                 <input type="text" placeholder="Name" name="name" id="name" required>
                 <input type="email" placeholder="Email" name="email" id="email" required>
                 <input type="tel" placeholder="Phone Number" name="phone" id="phone" required>
@@ -48,66 +50,48 @@
         </div>
     </section>
     <script src="formValidation.js"></script>
-    <section id="staff">
-        <h1>School staff</h1>
-        <div class="staff-box">
-
-            <div class="profile">
-
-                <img src="menu.jpeg" alt="">
-                <h6>cbsakjvb</h6>
-                <p>cnbvjbvwkbvwljkv</p>
-
-            </div>
-            <div class="profile">
-
-                <img src="menu.jpeg" alt="">
-                <h6>cbsakjvb</h6>
-                <p>cnbvjbvwkbvwljkv</p>
-
-            </div>
-            <div class="profile">
-
-                <img src="menu.jpeg" alt="">
-                <h6>cbsakjvb</h6>
-                <p>cnbvjbvwkbvwljkv</p>
-
+    
+    
+    <footer>
+        <div class="footer-col">
+            <h3>Important Links</h3>
+            <ul>
+                <li>Home</li>
+                <li>Admissions</li>
+                <li>Student Corner</li>
+                <li>Parental Cooperation</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Helpful Links</h3>
+            <ul>
+                <li>Activities</li>
+                <li>Transfer Certificate</li>
+                <li>Contact Us</li>
+                <li>Login</li>
+            </ul>
+        </div>
+        <div class="footer-col google-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.4063555655043!2d75.49366357540214!3d31.4304781742553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a4dd880e25ee9%3A0xcd2bdec5d9324897!2sDayanand%20Model%20Public%20School!5e0!3m2!1sen!2sin!4v1716710753408!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <hr class="footer-line">
+        <div class="footer-bottom">
+            <p>&copy;2024 ALL RIGHTS RESERVED</p>
+            <p class="designer-credit">Design and Development by Bhanu Uday Sharma</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100067173007042" target="_blank" class="icon"><img class="footer-img" src="images/facebook.png" alt="Logo"></a>
+                <a href="contact.html" class="icon"><img class="footer-img" src="images/mail.png" alt="Mail"></a>
+                <a href="contact.html" class="icon"><img class="footer-img" src="images/call.png" alt="Call"></a>
             </div>
         </div>
-    </section>
-    <footer>
-    </div>
-    <div class="footer-col">
-        <h3>Top Products</h3>
-        <li>Manage Reputation</li>
-        <li>Powertools</li>
-        <li>Powertools</li>
-        <li>Powertools</li>
-    </div>
-    <div class="footer-col">
-        <h3>Top Products</h3>
-        <li>Manage Reputation</li>
-        <li>Powertools</li>
-        <li>Powertools</li>
-        <li>Powertools</li>
-    </div>
-    <div class="footer-col">
-        <h3>Contact Us</h3>
-        <li>DAYANAND MODEL SCHOOL ,TAHLI SAHIB ROAD ,ARYA NAGAR, KARTARPUR</li>
-        <li>dmskartarpur@gmail.com</li>
-        <li>9876676168</li>
-    </div>
-    <div class="copyright">
-        <p> &copy;2024 ALL RIGHTS RESERVED</p>
-    </div>
-  </footer>
-  <script>
-            $('#menu-btn').click(function(){
-    $('nav .navigation ul').addClass('active')
-});
-$('#menu-close').click(function(){
-    $('nav .navigation ul').removeClass('active')
-});
-  </script>
+    </footer>
+    <script>
+        $('#menu-btn').click(function(){
+            $('nav .navigation ul').addClass('active');
+        });
+        $('#menu-close').click(function(){
+            $('nav .navigation ul').removeClass('active');
+        });
+    </script>
 </body>
 </html>
