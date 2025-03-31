@@ -110,6 +110,26 @@
         </div>
     </footer>
     <script>
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        const navbarHeight = navbar.offsetHeight;
+    
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                navbar.style.top = `-${navbarHeight}px`;
+            } else {
+                // Scrolling up
+                navbar.style.top = '0';
+            }
+    
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+    
+    <script>
         $('#menu-btn').click(function(){
             $('nav .navigation ul').addClass('active');
         });

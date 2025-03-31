@@ -7,10 +7,9 @@
     <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="stylesheet" href="school.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-s34YZAMFmTYEOvLVLwcWz5rYrj7vCVg9Vuh8XOBpOrOAYT4dIxkuV+uX0F2XjMSA" crossorigin="anonymous">
-    <script src="loader.js"></script>
 </head>
+
 <body>
-    <div id="loader"></div>
     <nav>
         <img src="images/logo.png" alt="School Logo">
         <div class="school-name">
@@ -37,21 +36,25 @@
         </div>
     </section>
 
-    <section id="latest-activities">
-        <h2>Latest Activities</h2>
-        <div class="video-group">
-            <div class="video-container">
-                <h3>Independence Day Celebration</h3>
-                <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/9XFsn5mM-ow?enablejsapi=1&autoplay=0&controls=1&rel=0&modestbranding=1&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <section id="republic-day-celebration">
+        <h1>Republic Day Celebration</h1>
+        <div class="iframe-container">
+            <div class="iframe-box">
+                <h3>Facebook Post</h3>
+                <a href="https://www.facebook.com/dmskartarpur.in/posts/pfbid02TanLzNT3GvJpuSNkhQ6d9NSJWcJpzmve293aux79am6DXTQ81PGmFTj5kQk74btyl" target="_blank">
+                    <div class="thumbnail-container">
+                        <img src="images/fth.png" alt="Facebook Post Thumbnail" class="thumbnail">
+                    </div>
+                </a>
             </div>
-            <div class="video-container">
-                <h3>Teej Celebration</h3>
-                <iframe id="video2" width="560" height="315" src="https://www.youtube.com/embed/ESsbDAjZaq4?enablejsapi=1&autoplay=0&controls=1&rel=0&modestbranding=1&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="iframe-box">
+                <h3>YouTube Video</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qaEI8M01068?si=ixy0v1Ky1W0ctnFj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
-
+    
+    
     <section id="features">
         <h2>Dayanand Model School</h2>
         <p>Where Learning Inspires Futures</p>
@@ -140,97 +143,91 @@
         </div>
     </footer>
 
-    <!-- YouTube IFrame API script -->
-    <script src="https://www.youtube.com/iframe_api"></script>
+
 
     <!-- jQuery script -->
+     
     <script src="jquery-3.7.1.min.js"></script>
 
     <!-- Inline JavaScript for video control -->
     <script>
-        let players = [];
-
-        // This function is called by the YouTube IFrame API when it's ready
-        function onYouTubeIframeAPIReady() {
-            const iframes = document.querySelectorAll('#latest-activities iframe');
-            iframes.forEach((iframe, index) => {
-                players[index] = new YT.Player(iframe, {
-                    events: {
-                        'onStateChange': onPlayerStateChange
-                    }
-                });
-            });
-        }
-
-        window.addEventListener('load', function() {
-        document.getElementById('loader').style.display = 'none';
-    });
-         // This function is called whenever the state of a player changes
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                players.forEach((player) => {
-                    if (player !== event.target && player.getPlayerState() == YT.PlayerState.PLAYING) {
-                        player.pauseVideo();
-                    }
-                });
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        const navbarHeight = navbar.offsetHeight;
+    
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                navbar.style.top = `-${navbarHeight}px`;
+            } else {
+                // Scrolling up
+                navbar.style.top = '0';
             }
-        }
-         $(document).ready(function() {
-            $('#menu-btn').click(function() {
-                $('nav .navigation ul').addClass('active');
-            });
-            $('#menu-close').click(function() {
-                $('nav .navigation ul').removeClass('active');
-            });
-
-            // Slideshow logic...
-            let slideIndex = 0;
-            const slides = $('.slides img');
-            const dots = $('.slideshow-dots .dot');
-            const prevBtn = $('.prev');
-            const nextBtn = $('.next');
-
-            function showSlides(n) {
-                slides.removeClass('active');
-                dots.removeClass('active-dot');
-                if (n >= slides.length) { slideIndex = 0; }
-                if (n < 0) { slideIndex = slides.length - 1; }
-                $(slides[slideIndex]).addClass('active');
-                $(dots[slideIndex]).addClass('active-dot');
-            }
-
-            function nextSlide() {
-                showSlides(slideIndex += 1);
-            }
-
-            function prevSlide() {
-                showSlides(slideIndex -= 1);
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            dots.each(function(index) {
-                $(this).on('click', function() {
-                    currentSlide(index);
-                });
-            });
-
-            prevBtn.on('click', function() {
-                prevSlide();
-            });
-
-            nextBtn.on('click', function() {
-                nextSlide();
-            });
-
-            showSlides(slideIndex);
-
-            setInterval(function() {
-                nextSlide();
-            }, 3000); // Change image every 3 seconds
+    
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+    </script>
+    
+    <script>
+       $(document).ready(function() {
+    $('#menu-btn').click(function() {
+        $('nav .navigation ul').addClass('active');
+    });
+    $('#menu-close').click(function() {
+        $('nav .navigation ul').removeClass('active');
+    });
+
+    // Slideshow logic...
+    let slideIndex = 0;
+    const slides = $('.slides img');
+    const dots = $('.slideshow-dots .dot');
+    const prevBtn = $('.prev');
+    const nextBtn = $('.next');
+
+    function showSlides(n) {
+        slides.removeClass('active');
+        dots.removeClass('active-dot');
+        if (n >= slides.length) { slideIndex = 0; }
+        if (n < 0) { slideIndex = slides.length - 1; }
+        $(slides[slideIndex]).addClass('active');
+        $(dots[slideIndex]).addClass('active-dot');
+    }
+
+    function nextSlide() {
+        showSlides(slideIndex += 1);
+    }
+
+    function prevSlide() {
+        showSlides(slideIndex -= 1);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    dots.each(function(index) {
+        $(this).on('click', function() {
+            currentSlide(index);
+        });
+    });
+
+    prevBtn.on('click', function() {
+        prevSlide();
+    });
+
+    nextBtn.on('click', function() {
+        nextSlide();
+    });
+
+    showSlides(slideIndex);
+
+    setInterval(function() {
+        nextSlide();
+    }, 3000); // Change image every 3 seconds
+});
+
     </script>
 </body>
 </html>

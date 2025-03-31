@@ -1,3 +1,7 @@
+
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -6,44 +10,7 @@
 body{
     font-family: sans-serif;
     background-color: white;
-    
 }
-/* Loader styles */
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px); /* Blur effect */
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Spinner styles */
-#loader::before {
-    content: "";
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid navy;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-/* Animation for the spinner */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 
 h1{
     font-size: 2.5rem;
@@ -67,14 +34,13 @@ nav{
     justify-content: space-between;
     padding: 1vw 8vw;
     align-items: center;
-    padding: 1vw 8vw;
     box-shadow: 2px 2px 10px gray;
     z-index: 999;
+    transition: top 0.3s ease; 
 }
 nav img{
     width: 100px;
     cursor: pointer;
-
 }
 nav .school-name{
     margin-left: 15px;
@@ -83,15 +49,14 @@ nav .school-name{
 nav .school-name p:first-child {
     color: wheat;
     margin: 0;
-    font-size: 2rem; /* Larger font for "Dayanand Model School" */
+    font-size: 2rem;
     font-weight: bold;
 }
-
 nav .school-name p:last-child {
     color: wheat;
     margin: 0;
-    font-size: 1.5rem; /* Smaller font for "Arya Nagar, Kartarpur" */
-    line-height: 1.2; /* Adjust line height for better spacing */
+    font-size: 1.5rem;
+    line-height: 1.2;
 }
 nav .navigation{
     display: flex;
@@ -129,7 +94,6 @@ nav .navigation ul li a:hover{
 }
 
 /* home */
-
 #home{
     background-image: url("images/home.jpg");
     width: 100%;
@@ -165,21 +129,20 @@ nav .navigation ul li a:hover{
 #home h4{
     width: 50%; 
     color: white;
-    
-   line-height: 25px;
+    line-height: 25px;
 }
 #home .btn{
-   margin-top: 30px; 
+    margin-top: 30px; 
 }
 #home .btn .btncolor{
     background-color:white;
     color: #ff9933;
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
+    transition: all 0.3s ease;
 }
 #home .btn .btncolor:hover{
     color: lightgoldenrodyellow;
     box-shadow: 0 5px 25px rgba(255, 167, 38, 0.75);
-     background-color: #ff9933;
+    background-color: #ff9933;
 }
 #home a{
     text-decoration: none;
@@ -189,76 +152,92 @@ nav .navigation ul li a:hover{
     font-weight: 600;
     border-radius: 5px;
 }
-#latest-activities {
-    padding: 50px 0;
+
+
+#republic-day-celebration {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#republic-day-celebration h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    margin-top: 20px;
+}
+
+.iframe-box {
+    width: 500px;
+    height: 500px; /* Ensuring the box is square */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
     background-color: #f9f9f9;
-}
-
-#latest-activities h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.video-group {
+    overflow: hidden; /* Hide any overflow content */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: center; /* Center elements inside the box */
 }
 
-.video-container {
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.thumbnail {
     width: 100%;
-    max-width: 800px; /* Increased maximum width for desktop */
-    margin: 0 auto;
-    border-radius: 15px;
-    overflow: hidden;
-    padding: 0 10px;
+    height: auto;
+    max-width: 450px; /* Ensure thumbnail is responsive */
+    border-radius: 8px;
+    cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
-.video-container h3 {
-    font-size: 1.2rem;
+.iframe-box h3 {
     margin-bottom: 10px;
     color: #333;
+    font-size: 1.2em;
 }
 
-.video-container iframe {
+.iframe-box iframe {
     width: 100%;
-    height: 450px; /* Increased height to maintain aspect ratio */
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    #latest-activities h2 {
-        font-size: 1.8rem;
+    .iframe-box {
+        width: 90%; /* Adjust box width for tablets */
+        height: auto; /* Let height adjust automatically */
     }
 
-    .video-container {
-        width: 90%;
-        padding: 0 5px;
-    }
-
-    .video-container iframe {
-        height: 360px; /* Adjusted height for tablets */
+    #republic-day-celebration h1 {
+        font-size: 2em;
     }
 }
 
 @media (max-width: 480px) {
-    #latest-activities h2 {
-        font-size: 1.6rem;
+    .iframe-container {
+        flex-direction: column; /* Stack the iframes vertically */
+        align-items: center; /* Ensure they are centered */
     }
 
-    .video-container {
-        width: 100%;
-        padding: 0 15px;
+    .iframe-box {
+        width: 90%; /* Make it responsive on small screens */
+        margin-bottom: 20px; /* Space between stacked items */
     }
 
-    .video-container iframe {
-        height: 270px; /* Adjusted height for mobile */
+    #republic-day-celebration h1 {
+        font-size: 1.8em;
     }
 }
 
